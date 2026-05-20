@@ -1,25 +1,25 @@
 apiVersion: apps/v1
 kind: Deployment
-
 metadata:
-  name: flask-hello
+  name: pythontest
+  labels:
+    app: pythontest
 
 spec:
   replicas: 1
 
   selector:
     matchLabels:
-      app: flask-hello
+      app: pythontest
 
   template:
     metadata:
       labels:
-        app: flask-hello
+        app: pythontest
 
     spec:
       containers:
-        - name: flask-hello
-
+        - name: pythontest
           image: localhost:4000/flask_hello:latest
 
           ports:
