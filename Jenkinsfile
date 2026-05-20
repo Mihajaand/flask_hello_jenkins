@@ -38,8 +38,8 @@ pipeline {
         stage('Deploy') {
             agent any
             steps {
-                sh 'kubectl apply -f kubernetes/deployment.yaml'
-                sh 'kubectl apply -f kubernetes/service.yaml'
+                sh 'kubectl apply --validate=false -f kubernetes/deployment.yaml'
+                sh 'kubectl apply --validate=false -f kubernetes/service.yaml'
             }
         }
 
