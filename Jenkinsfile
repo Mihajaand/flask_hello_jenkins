@@ -30,6 +30,14 @@ pipeline {
                 sh 'docker push localhost:4000/flask_hello:latest'
             }
         }
+        stage('Deploy Kubernetes') {
+            agent any
+
+            steps {
+                sh 'kubectl apply -f kubernetes/deployment.yaml'
+                sh 'kubectl apply -f kubernetes/service.yaml'
+            }
+        }
 
     }
 }
